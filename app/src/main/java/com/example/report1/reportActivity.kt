@@ -17,8 +17,8 @@ import java.util.*
 
 class reportActivity : AppCompatActivity(), View.OnClickListener {
 
-    private var filePath: Uri? = null;
-    private val PICK_IMAGE_REQUEST =1234
+    private var filePath: Uri? = null
+    private val PICK_IMAGE_REQUEST = 1234
     internal var storage: FirebaseStorage?=null
     internal var storageReference: StorageReference?=null
 
@@ -34,6 +34,11 @@ class reportActivity : AppCompatActivity(), View.OnClickListener {
 
         btn_choose_image.setOnClickListener(this)
         btn_upload_image.setOnClickListener(this)
+
+        btn_upload_image.setOnClickListener {
+            showFileChooser()
+        }
+
     }
 
     override fun onClick(v: View?) {
@@ -61,7 +66,7 @@ class reportActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun uploadFile() {
-        if(filePath !=null)
+        if(filePath != null)
         {
             val progressDialog = ProgressDialog(this)
             progressDialog.setTitle("Uploading...")

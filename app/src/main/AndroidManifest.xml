@@ -13,8 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".reportActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".reportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainStyle"
+            ></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,5 +27,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>

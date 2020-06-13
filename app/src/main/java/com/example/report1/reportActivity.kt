@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_report.*
 import java.io.IOException
 import java.util.*
 
-class reportActivity : AppCompatActivity(), View.OnClickListener {
+class reportActivity : AppCompatActivity(){
 
     private var filePath: Uri? = null
     private val PICK_IMAGE_REQUEST = 1234
@@ -31,21 +31,18 @@ class reportActivity : AppCompatActivity(), View.OnClickListener {
         storageReference = storage!!.reference
 
         //setup button
-
-        btn_choose_image.setOnClickListener(this)
-        btn_upload_image.setOnClickListener(this)
-
-        btn_upload_image.setOnClickListener {
-            showFileChooser()
-        }
+        listenerFun()
 
     }
 
-    override fun onClick(v: View?) {
-        if(v === btn_choose_image)
+    private fun listenerFun() {
+        btn_choose_image.setOnClickListener {
             showFileChooser()
-        else if(v === btn_upload_image)
+        }
+        btn_upload_image.setOnClickListener {
             uploadFile()
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -72,7 +69,7 @@ class reportActivity : AppCompatActivity(), View.OnClickListener {
             progressDialog.setTitle("Uploading...")
             progressDialog.show()
 
-            val imageRef = storageReference!!.child("images/"+ UUID.randomUUID().toString())
+                     val imageRef = storageReference!!.child("images/"+ UUID.randomUUID().toString())
             imageRef.putFile(filePath!!)
                 .addOnSuccessListener {
                     progressDialog.dismiss()

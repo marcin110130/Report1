@@ -4,5 +4,5 @@
     <string name="worker">Pracownik</string>
     <string name="upload_image">Upload image</string>
     <string name="choose_image">Choose image</string>
-
+    <string name="ImageNameEditText">Edit text</string>
 </resources>
